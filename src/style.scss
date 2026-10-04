@@ -1,8 +1,80 @@
-.basic-userscript {
-  border-top: 1px solid black;
+#StoryViewer > .tgsd-download {
+  display: inline-flex;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 55%);
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  pointer-events: auto;
+  color: #fff;
+
+  &:hover {
+    background: rgb(0 0 0 / 78%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: progress;
+  }
+
+  .tgsd-ring {
+    display: none;
+    position: absolute;
+    transform: rotate(-90deg);
+    inset: 1px;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    pointer-events: none;
+  }
+
+  .tgsd-ring-track,
+  .tgsd-ring-value {
+    fill: none;
+    stroke-width: 2.5;
+  }
+
+  .tgsd-ring-track {
+    stroke: rgb(255 255 255 / 28%);
+  }
+
+  .tgsd-ring-value {
+    stroke: #fff;
+    stroke-dasharray: 100;
+    stroke-dashoffset: calc(100 - var(--tgsd-progress, 0));
+    stroke-linecap: round;
+  }
+
+  &.is-loading .tgsd-ring {
+    display: block;
+  }
+
+  &.is-loading.is-indeterminate .tgsd-ring-value {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: tgsd-ring 0.9s linear infinite;
+    stroke-dasharray: 24 76;
+    stroke-dashoffset: 0;
+  }
+
+  &.is-error {
+    background: rgb(176 32 32 / 88%);
+  }
 }
 
-.actions {
-  display: flex;
-  gap: 8px;
+@keyframes tgsd-ring {
+  to {
+    transform: rotate(360deg);
+  }
 }

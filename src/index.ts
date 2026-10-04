@@ -1,8 +1,5 @@
-import { createCounter } from './counter'
+import { startStoryDownloader } from './story-downloader'
+
 import './style.scss'
 
-await new Promise(resolve => setTimeout(resolve, 1))
-
-if (document.body) {
-  document.body.append(createCounter())
-}
+startStoryDownloader()

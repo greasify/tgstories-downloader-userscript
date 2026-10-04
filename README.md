@@ -1,7 +1,18 @@
-# Vite Userscript template
+# Telegram Stories Downloader
 
-> This template is based on [Vite](https://vitejs.dev) and [vite-userscript-plugin](https://github.com/greasify/vite-userscript-plugin)
+Юзерскрипт для [Telegram Web A](https://web.telegram.org/a/). В открытом просмотрщике сторис появляется кнопка: она сохраняет текущее фото или видео.
 
-## Install Userscript
+Штатная загрузка в клиенте есть только у Premium и пропадает, если у сторис запрещена пересылка. Скрипт забирает тот же файл, который уже играет на экране.
 
-> [vite-userscript-template.user.js](https://greasify.github.io/vite-userscript-template/vite-userscript-template.user.js)
+## Установка из сборки
+
+```sh
+pnpm install
+pnpm build
+```
+
+## Разработка
+
+```sh
+pnpm dev
+```
